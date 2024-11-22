@@ -1,1 +1,1 @@
-<archenous.github.io>
+[archenous.github.io]
