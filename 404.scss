@@ -1,3 +1,14 @@
+// @media only all and (max-width:850px) { 
+//   .siteContentContainer{
+//       display:none;
+//   }
+
+//   .siteWidthNotSupported{
+//       display:block;
+//       color: white;
+//   }
+// }
+
 
 html, body {
   width: 100vw;
@@ -47,7 +58,7 @@ html, body {
     margin-left: 2.4rem;
     padding: 0.8rem 3rem;
     background-color: transparent;
-    // text-decoration: none;
+    text-decoration: none;
     border: 1px solid white;
     font-size: 1.5rem;
     letter-spacing: 0.2rem;
