@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Archê Nous</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="404.css">
+
+        <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    </head>
+<body>
+    <div class="site-404">404<br></div>
+    <div class="home-container">
+        <div class="terminal">
+            <div class="terminal-up">
+                <span class="terminal-user">Arche-Nous @ main >&nbsp;</span>
+                <span class="terminal-input">grep -B 2 ' 404 ' ~/archenous.github.io.log</span>
+            </div>
+            <div class="terminal-output-1">
+                <!-- --2017-08-11 11:02:42--  http://localhost:3000/static/0/image/banner.jpg -->
+            </div>
+            <div class="terminal-output-2">
+                Reusing existing connection to localhost:3000.
+            </div>
+            <div class="terminal-output-3">
+                HTTP request sent, awaiting response... 404 Not Found
+            </div>
+        </div>
+        <div class="page-not-found">Page Not Found</div>
+        <a class="home-btn"><span>HOME</span></a>
+    </div>
+
+    <script>
+        var termOutput1 = document.getElementsByClassName('terminal-output-1')[0];
+        const curURL = window.location.href;
+        termOutput1.textContent = '--' + Date().toLocaleString() + '-- ' + curURL.substr(0, curURL.lastIndexOf("/") + 1);
+        
+        function typingEffect(className, delayMin, delayAboveMin, delayIdx) {
+            return new Promise((resolve) => {
+                const textElement = document.getElementsByClassName(className)[0];
+                if (!textElement) {
+                    console.error(`Element with class ${className} not found.`);
+                    resolve(); // Resolve even if the element is not found
+                    return;
+                }
+            
+                const words = textElement.textContent.split("");
+                textElement.innerHTML = '&nbsp;';
+                textElement.style.opacity = '1';
+            
+                let totalDelay = 0; // Track the cumulative delay
+            
+                // Generate delays for each character
+                const typingDelay = words.map(
+                    () => Math.floor(Math.random() * delayAboveMin + delayMin)
+                );
+            
+                // Type each character one at a time
+                words.forEach((word, idx) => {
+                    totalDelay += typingDelay[idx];
+                    setTimeout(() => {
+                        textElement.textContent += word;
+                        if (idx === words.length - 1) resolve(); // Resolve after the last character
+                    }, totalDelay);
+                });
+            });
+        }
+        
+        // Show button
+        const buttonElement = document.getElementsByClassName('home-btn')[0];
+        
+        function showButton() {
+            return new Promise((resolve) => {
+                buttonElement.style.opacity = "1";
+                resolve();
+            });
+        }
+
+        async function runTypingEffects() {
+            await typingEffect('terminal-input', 20, 20, 10);
+            await typingEffect('terminal-output-1', 2, 5, 6);
+            await typingEffect('terminal-output-2', 4, 4, 0);
+            await typingEffect('terminal-output-3', 4, 4, 0);
+            await typingEffect('page-not-found', 40, 40, 6);
+            await showButton();
+        }
+
+        runTypingEffects();
+
+        // setTimeout(showButton, typingDelay.reduce((acc , curr, i) => acc = acc + curr ,0)+400);
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+  }
+
+.site-404 {
+  position:absolute;
+  bottom:10px;
+  right: 10px;
+  color: white;
+  font-size: 10rem;
+  font-family: monospace;
+  }
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  color: white;
+  font-family: monospace;
+
+
+  .page-not-found {
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 2rem;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-right: 2px solid white; /* Cursor effect */
+    position: relative;
+    width: auto;
+    opacity: 0;
+  }
+  
+  .home-btn{
+    opacity: 0;
+    display: block;
+    margin-top: 1.5rem;
+    margin-left: 2.4rem;
+    padding: 0.8rem 3rem;
+    background-color: transparent;
+    // text-decoration: none;
+    border: 1px solid white;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+  }
+  
+  .home-btn span{
+    position: relative;
+    z-index: 5;
+  }
+  
+  .home-btn:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff003b;
+    transition: all .35s;
+  }
+  
+  .home-btn:hover{
+    color: white;
+  }
+  
+  .home-btn:hover:after{
+    width: 100%;
+  }
+}
+
+@keyframes typing {
+  from {
+      width: 0;
+  }
+  to {
+      width: auto; /* Full width of the text */
+  }
+}
+
+.terminal {
+  font-family: monospace;
+  // background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.terminal-up {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-user {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.terminal-input {
+  display: inline-block;
+  white-space: nowrap;
+  // transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.terminal-input.active {
+  width: auto;
+}
+
+.terminal-input, .terminal-output-1, .terminal-output-2, .terminal-output-3 {
+  opacity: 0;
+}
